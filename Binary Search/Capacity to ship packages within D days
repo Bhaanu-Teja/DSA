@@ -1,0 +1,27 @@
+// // Capacity to ship packages within D days --> Brute Force
+class Solution {
+public:
+    int shipWithinDays(vector<int>& weights, int days) {
+        int n = weights.size();
+        int start = *max_element(weights.begin(),weights.end());
+        int end = 0;
+        for(int i = 0; i<n; i++) end += weights[i];
+        for(int i = start; i<=end; i++){
+            int count = 1;
+            int sum = 0;
+            for(int j = 0; j<n; j++){
+                if(sum + weights[j] <= i){
+                    sum += weights[j];
+                }
+                else{
+                    sum = weights[j];
+                    count ++;
+                }
+            }
+            if(count <= days) return i;
+        }
+        return -1;
+    }
+};
+
+
