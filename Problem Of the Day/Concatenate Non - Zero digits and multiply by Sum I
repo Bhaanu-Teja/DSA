@@ -1,4 +1,5 @@
-// Concatenate Non - Zero digits and multiply by Sum I
+// 07-07-2026
+// 3754. Concatenate Non - Zero digits and multiply by Sum I
 class Solution {
 public:
     long long sumAndMultiply(int n) {
