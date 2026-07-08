@@ -1,3 +1,4 @@
+// Approach 1
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
@@ -20,5 +21,20 @@ public:
             temp=temp->next;
         }
         return head;
+    }
+};
+
+// Approach 2 -> Optimal
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        if(head->next == NULL) return head;
+        ListNode* temp1 = head;
+        ListNode* temp2 = head;
+        while(temp1 != nullptr && temp1->next != nullptr){
+            temp1 = temp1->next->next;
+            temp2=temp2->next;
+        }
+        return temp2;
     }
 };
