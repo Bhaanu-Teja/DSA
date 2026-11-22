@@ -16,3 +16,45 @@ public:
         return nums1;
     }
 };  
+
+// Optimal
+class Solution {
+public:
+    vector<int> unionArray(vector<int>& nums1, vector<int>& nums2) {
+        int n = nums1.size();
+        int m = nums2.size();
+        vector<int>arr;
+        int t1 = 0;
+        int t2 = 0;
+        while(t1 < n && t2 < m){
+            if(nums1[t1] < nums2[t2]){
+                if(arr.empty() || arr.back() != nums1[t1])
+                    arr.push_back(nums1[t1]);
+                t1++:
+            }
+            else if(nums2[t2] < nums1[t1]){
+                if(arr.empty() || arr.back() != nums2[t2])
+                    arr.push_back(nums2[t2]);
+                t2++:
+            }
+            else{
+                if(arr.empty() || arr.back() != nums2[t2])
+                    arr.push_back(nums1[t1]);
+                t1++;
+                t2++:
+            }
+        }
+        while(t1 <n){
+            if(arr.empty() || arr.back() != nums1[t1])
+                arr.push_back(nums1[t1]);
+            t1++;
+        }
+        while(t2 < m){
+            if(arr.empty() || arr.back() != nums2[t2])
+                arr.push_back(nums2[t2]);
+            t2++;
+        }
+        return arr;
+    }
+};
+
